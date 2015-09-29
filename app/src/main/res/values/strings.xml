@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="create_server">Create a server:</string>
+    <string name="join_server">Join a server:</string>
+    <string name="action_settings">Settings</string>
+</resources>
