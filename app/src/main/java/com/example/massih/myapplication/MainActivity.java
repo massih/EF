@@ -1,25 +1,32 @@
 package com.example.massih.myapplication;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
 
 
 public class MainActivity extends AppCompatActivity {
 
     NsdHelper nsdHelper;
-
+    ListView serversListView;
 
     public static final String TAG = "MainActivity";
-
+    private Button server_create_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        nsdHelper = new NsdHelper();
+
+        server_create_button = (Button)findViewById(R.id.server_create_btn);
+        nsdHelper = new NsdHelper(this);
+        nsdHelper.initializeNsd();
+        //nsdHelper.discoverServices();
+        //serversListView = (ListView) findViewById(R.id.servers_list);
     }
 
     @Override
@@ -42,5 +49,32 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void registerServerBtn(View v){
+
+        nsdHelper.registerService(33333);
+    }
+
+    @Override
+    protected void onPause() {
+        if (nsdHelper != null) {
+            nsdHelper.stopDiscovery();
+        }
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (nsdHelper != null) {
+            nsdHelper.discoverServices();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        nsdHelper.tearDown();
+        super.onDestroy();
     }
 }
