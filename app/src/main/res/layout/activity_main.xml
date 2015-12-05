@@ -19,13 +19,13 @@
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:singleLine="true"
                 android:inputType="text"/>
             <Button
                 android:id="@+id/server_create_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:text="Create"/>
+                android:text="Create"
+                android:onClick="registerServerBtn"/>
     </LinearLayout>
     <View
         android:layout_width="fill_parent"
