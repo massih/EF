@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">EsmFamil</string>
 
-    <string name="choose_mode">How do you want to play?</string>
-    <string name="create_server">Create a game</string>
-    <string name="join_server">Join a friend</string>
+    <string name="next_btn_txt">Next</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Choose Mode activity -->
+    <string name="choose_mode_txt">How do you want to play?</string>
+    <string name="choose_mode_create_server">Create a game</string>
+    <string name="choose_mode_join_server">Join a friend</string>
+
+    <!-- create server activity -->
+    <string name="create_server_txt">Pick a name for your game</string>
+
 </resources>

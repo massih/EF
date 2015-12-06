@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void registerServerBtn(View v){
 
-        nsdHelper.registerService(33333);
+        nsdHelper.registerService(33333, "test");
     }
 
     @Override

@@ -3,8 +3,11 @@ package com.example.massih.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class ChooseModeActivity extends AppCompatActivity {
+
+    public static final String TAG = "ChooseModeActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +25,14 @@ public class ChooseModeActivity extends AppCompatActivity {
         super.onResume();
     }
 
-    public void chooseModeJoin(){
+    public void chooseModeJoin(View v){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void chooseModeCreate(){
-        Intent intent = new Intent(this, MainActivity.class);
+    public void chooseModeCreate(View v){
+        Intent intent = new Intent(this, CreateServerActivity.class);
+
         startActivity(intent);
     }
 }

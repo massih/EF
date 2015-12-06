@@ -17,7 +17,7 @@ public class NsdHelper {
     NsdManager.DiscoveryListener zDiscoveryListener;
     NsdManager.RegistrationListener zRegistrationListener;
     NsdServiceInfo zService;
-    public String zServiceName = "NDTest";
+    public String zServiceName = "ESMFAMIL:";
 
     public static final String SERVICE_TYPE = "_http._tcp.";
     public static final String TAG = "NsdHelper";
@@ -47,11 +47,11 @@ public class NsdHelper {
             public void onServiceResolved(NsdServiceInfo serviceInfo) {
                 Log.e(TAG, "Resolve Succeeded. " + serviceInfo);
 
-                /*
-                if (serviceInfo.getServiceName().equals(mServiceName)) {
+
+                if (serviceInfo.getServiceName().equals(zServiceName)) {
                     Log.d(TAG, "Same IP.");
                     return;
-                }*/
+                }
                 zService = serviceInfo;
 
             }
@@ -75,7 +75,7 @@ public class NsdHelper {
                     Log.d(TAG, "Same machine: " + zServiceName);
                 } else if (service.getServiceName().contains(zServiceName)){
                     Toast.makeText(zContext, "Found: "+service.getServiceName(), Toast.LENGTH_LONG).show();
-                    //zNsdManager.resolveService(service, zResolveListener);
+                    zNsdManager.resolveService(service, zResolveListener);
                 }
             }
 
@@ -117,6 +117,7 @@ public class NsdHelper {
 
             @Override
             public void onRegistrationFailed(NsdServiceInfo arg0, int arg1) {
+                Log.d(TAG,"registration failed"+ arg0.toString());
             }
 
             @Override
@@ -130,9 +131,10 @@ public class NsdHelper {
         };
     }
 
-    public void registerService(int port) {
+    public void registerService(int port, String name) {
         NsdServiceInfo serviceInfo  = new NsdServiceInfo();
         serviceInfo.setPort(port);
+        zServiceName += name;
         serviceInfo.setServiceName(zServiceName);
         serviceInfo.setServiceType(SERVICE_TYPE);
 
