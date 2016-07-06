@@ -19,10 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:name=".JoinServerActivity"
+            android:parentActivityName=".ChooseModeActivity">
         </activity>
-        <activity android:name=".CreateServerActivity" android:parentActivityName=".ChooseModeActivity">
+        <activity
+            android:name=".CreateServerActivity"
+            android:parentActivityName=".ChooseModeActivity">
         </activity>
     </application>
 

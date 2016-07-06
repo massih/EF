@@ -26,7 +26,6 @@ public class NsdHelper {
     public NsdHelper(Context context) {
         zContext = context;
         zNsdManager = (NsdManager)zContext.getSystemService(Context.NSD_SERVICE);
-
     }
 
     public void initializeNsd() {

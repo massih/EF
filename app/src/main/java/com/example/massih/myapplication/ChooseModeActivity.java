@@ -26,13 +26,12 @@ public class ChooseModeActivity extends AppCompatActivity {
     }
 
     public void chooseModeJoin(View v){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, JoinServerActivity.class);
         startActivity(intent);
     }
 
     public void chooseModeCreate(View v){
         Intent intent = new Intent(this, CreateServerActivity.class);
-
         startActivity(intent);
     }
 }

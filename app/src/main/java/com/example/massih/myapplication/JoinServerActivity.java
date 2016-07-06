@@ -9,18 +9,18 @@ import android.widget.Button;
 import android.widget.ListView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class JoinServerActivity extends AppCompatActivity {
 
     NsdHelper nsdHelper;
     ListView serversListView;
 
-    public static final String TAG = "MainActivity";
+    public static final String TAG = "JoinServerActivity";
     private Button server_create_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_join_server);
 
         server_create_button = (Button)findViewById(R.id.server_create_btn);
         nsdHelper = new NsdHelper(this);
